@@ -1,0 +1,12 @@
+.time__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.time {
+  font-size: 10rem;
+  line-height: 110%;
+  font-weight: 500;
+}
