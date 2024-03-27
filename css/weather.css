@@ -1,0 +1,11 @@
+.weather__container {
+  position: fixed;
+  right: 1rem;
+  /* 1rem = 16 px , 시스템 설정의 크기에 맞춰 바뀜 */
+  top: 1rem;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+}
