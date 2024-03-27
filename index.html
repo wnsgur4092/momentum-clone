@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Weather -->
+    <!-- CSS BEM -->
+    <div class="weather__container">
+      <div class="weather">
+        <div class="weather_icon">Sun</div>
+        <div class="weather__temperature">22도</div>
+      </div>
+      <div>Sydney</div>
+    </div>
+    <!-- Main -->
+    <div class="main__container">
+      <!-- Time & Greeting-->
+      <section>
+        <span class="time">10:30</span>
+        <div class="greeting">
+          <form class="greeting__form">
+            <input
+              class="greeting__input"
+              type="text"
+              placeholder="What's your name?"
+            />
+          </form>
+          <p class="greeting__message">Hello, Jun</p>
+        </div>
+      </section>
+
+      <!-- TODO -->
+      <section class="todo__container">
+        <p class="todo__title">TODO of the Day</p>
+        <form class="todo__form"><input class=todo__input" type="text" /></form>
+        <ul>
+          <li>GO HOME</li>
+          <li>STUDY</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>
