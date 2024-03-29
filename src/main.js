@@ -1,5 +1,6 @@
 // main.js
 import { getCurrentDateTime } from './time.js';
+import { setUpGreetingForm } from './name.js';
 
 function updateDateTime() {
   const { date, time } = getCurrentDateTime();
@@ -14,4 +15,8 @@ function updateDateTime() {
 document.addEventListener('DOMContentLoaded', () => {
   updateDateTime();
   setInterval(updateDateTime, 1000);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  setUpGreetingForm();
 });
