@@ -5,14 +5,14 @@
   padding: 0 2rem;
 }
 
-.time {
-  font-size: 10rem;
+.date {
+  font-size: 3rem;
   line-height: 110%;
   font-weight: 500;
 }
 
-.date {
-  font-size: 10rem;
+.time {
+  font-size: 5rem;
   line-height: 110%;
   font-weight: 500;
 }
