@@ -5,18 +5,22 @@ export function setUpGreetingForm() {
   const input = document.querySelector('.greeting__input');
   const greetingMessage = document.querySelector('.greeting__message');
 
-  const savedName = localStorage.getItem('name');
+  const savedName = window.localStorage.getItem('name');
   if (savedName) {
-    greetingMessage.textContent = `Hello, ${savedName}`;
-    form.style.display = 'none';
-    greetingMessage.style.display = 'block';
+    displayGreeting(savedName);
   }
 
   form.addEventListener('submit', (event) => {
-    event.preventDefault(); //
-    const name = input.value;
+    event.preventDefault();
+    const name = input.value.trim();
+    if (!name) return;
+    window.localStorage.setItem('name', name);
+    displayGreeting(name);
+  });
+
+  function displayGreeting(name) {
     greetingMessage.textContent = `Hello, ${name}`;
     form.style.display = 'none';
     greetingMessage.style.display = 'block';
-  });
+  }
 }
