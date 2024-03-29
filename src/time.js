@@ -1,11 +1,20 @@
 // time.js
-export function getCurrentDateTime() {
+export function updateDateTime() {
+  const { date, time } = getCurrentDateTime();
+
+  const dateElement = document.querySelector('.date');
+  const timeElement = document.querySelector('.time');
+
+  dateElement.textContent = date;
+  timeElement.textContent = time;
+}
+
+function getCurrentDateTime() {
   const now = new Date();
 
-  const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
-  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
+  const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' }; // DD.MM.YYYY 형식으로 변경
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true }; // HH:MM AM/PM 형식으로 변경
 
-  // 로케일을 'en-US'로 설정하고, 위에서 정의한 옵션을 적용
   const date = now.toLocaleDateString('en-US', dateOptions).replace(/\//g, '.');
   const time = now.toLocaleTimeString('en-US', timeOptions);
 

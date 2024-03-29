@@ -1,22 +1,9 @@
 // main.js
-import { getCurrentDateTime } from './time.js';
+import { updateDateTime } from './time.js';
 import { setUpGreetingForm } from './name.js';
-
-function updateDateTime() {
-  const { date, time } = getCurrentDateTime();
-
-  const dateElement = document.querySelector('.date');
-  const timeElement = document.querySelector('.time');
-
-  dateElement.textContent = date;
-  timeElement.textContent = time;
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   updateDateTime();
-  setInterval(updateDateTime, 1000);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  setUpGreetingForm();
+  setInterval(updateDateTime, 1000); // 매 초마다 updateDateTime 초 상승
+  setUpGreetingForm(); // 이름 입력 폼 설정
 });
