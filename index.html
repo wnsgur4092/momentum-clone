@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="src/main.js" type="module"></script>
   </head>
   <body>
     <!-- Weather -->
@@ -20,7 +21,10 @@
     <div class="main__container">
       <!-- Time & Greeting-->
       <section>
-        <span class="time">10:30</span>
+        <div class="time__container">
+          <span class="date"></span>
+          <span class="time"></span>
+        </div>
         <div class="greeting">
           <form class="greeting__form">
             <input
