@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-.greetingform input[type='text'] {
+.greeting__form input[type='text'] {
   opacity: 100%;
   text-align: center;
 }
@@ -14,10 +14,10 @@
   font-size: 2rem;
   opacity: 100%;
   text-align: center;
-  color: white;
+  /* color: white; */
 }
 
-.greetingmessage {
+.greeting__message {
   animation: showGreetings 1s ease-out forwards;
 }
 
