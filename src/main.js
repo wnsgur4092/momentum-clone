@@ -2,6 +2,7 @@
 import { updateDateTime } from './time.js';
 import { setUpGreetingForm } from './name.js';
 import { setUpTodoForm } from './todo.js';
+import { success, fail } from './weather.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   updateDateTime();
@@ -10,42 +11,3 @@ document.addEventListener('DOMContentLoaded', () => {
   setUpTodoForm();
   navigator.geolocation.getCurrentPosition(success, fail);
 });
-
-const API_KEY = '47518a58b42dd5fa8d9d94f23bb7d94f';
-
-const success = (position) => {
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  getWeather(latitude, longitude);
-};
-
-const fail = () => {
-  alert('Unable to retrieve your location');
-};
-
-const getWeather = (lat, lon) => {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-  )
-    .then((response) => response.json()) // Make sure to call json() as a function
-    .then((data) => {
-      displayWeather(data);
-    })
-    .catch((error) => {
-      console.error('Failed to fetch weather data: ', error);
-    });
-};
-
-const displayWeather = (data) => {
-  const { name } = data;
-  const { icon } = data.weather[0];
-  const { temp } = data.main;
-  const iconUrl = `http://openweathermap.org/img/wn/${icon}.png`;
-
-  document.querySelector('.weather__icon').setAttribute('src', iconUrl);
-  document.querySelector('.weather__icon').setAttribute('alt', 'Weather Icon');
-  document.querySelector('.weather__temperature').textContent = `${Math.round(
-    temp
-  )}°C`;
-  document.querySelector('.weather__location').textContent = name;
-};
