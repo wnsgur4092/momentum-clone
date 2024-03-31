@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="image/favicon.ico" />
+    <!-- JS -->
+    <script src="src/main.js" type="module"></script>
   </head>
   <body>
     <!-- Weather -->
-    <!-- CSS BEM -->
     <div class="weather__container">
       <div class="weather">
-        <div class="weather_icon">Sun</div>
-        <div class="weather__temperature">22도</div>
+        <img src="" alt="Weather Icon" class="weather__icon" />
+        <div class="weather__temperature"></div>
       </div>
-      <div>Sydney</div>
+      <div class="weather__location"></div>
     </div>
     <!-- Main -->
     <div class="main__container">
       <!-- Time & Greeting-->
       <section>
-        <span class="time">10:30</span>
+        <!-- Time and Date -->
+        <div class="time__container">
+          <span class="date"></span>
+          <span class="time"></span>
+        </div>
+        <!-- Name -->
         <div class="greeting">
           <form class="greeting__form">
             <input
@@ -29,18 +37,17 @@
               placeholder="What's your name?"
             />
           </form>
-          <p class="greeting__message">Hello, Jun</p>
+          <p class="greeting__message" style="display: none"></p>
         </div>
       </section>
 
       <!-- TODO -->
       <section class="todo__container">
         <p class="todo__title">TODO of the Day</p>
-        <form class="todo__form"><input class=todo__input" type="text" /></form>
-        <ul>
-          <li>GO HOME</li>
-          <li>STUDY</li>
-        </ul>
+        <form class="todo__form">
+          <input class="todo__input" type="text" placeholder="Add new todos" />
+        </form>
+        <ul class="todo__list"></ul>
       </section>
     </div>
   </body>

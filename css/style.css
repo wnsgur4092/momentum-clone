@@ -1,0 +1,97 @@
+@import 'weather.css';
+@import 'time.css';
+@import 'greeting.css';
+@import 'todo.css';
+
+:root {
+  --color-primary: var(--color-black);
+  --color-text: var(--color-white);
+
+  /* Colors 변수 설정 */
+  --color-white: #ffffff;
+  --color-black: #050a13;
+
+  /* Shadow */
+  --text-shadow-sm: 1px 2px 6px rgba(26, 25, 25, 0.73);
+  --text-shadow: 2px 4px 8px var(--color-primary);
+  --text-shadow-lg: 5px 6px 13px rgba(26, 25, 25, 0.73);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-primary);
+  height: 100vh;
+  margin: 0;
+  padding: 0 1rem;
+  min-height: 720px;
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+i {
+  color: var(--color-text);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input[type='text'] {
+  background-color: transparent;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.75rem;
+  color: var(--color-text);
+  border: none;
+  opacity: 50%;
+  transition: opacity 300ms;
+  border-bottom: 2px white solid;
+}
+input[type='text']:focus {
+  outline: none;
+  opacity: 100%;
+}
+input[type='text']:hover {
+  opacity: 100%;
+}
+
+.main__container {
+  max-width: 520px;
+  width: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  position: relative;
+  text-shadow: var(--text-shadow-lg);
+}
