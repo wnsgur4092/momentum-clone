@@ -10,17 +10,32 @@ export const fail = () => {
   alert('Unable to retrieve your location');
 };
 
-const getWeather = (lat, lon) => {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-  )
-    .then((response) => response.json()) // Make sure to call json() as a function
-    .then((data) => {
-      displayWeather(data);
-    })
-    .catch((error) => {
-      console.error('Failed to fetch weather data: ', error);
-    });
+// const getWeather = (lat, lon) => {
+//   fetch(
+//     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+//   )
+//     .then((response) => response.json()) // Make sure to call json() as a function
+//     .then((data) => {
+//       displayWeather(data);
+//     })
+//     .catch((error) => {
+//       console.error('Failed to fetch weather data: ', error);
+//     });
+// };
+
+const getWeather = async (lat, lon) => {
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+    );
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    displayWeather(data);
+  } catch (error) {
+    console.error('Failed to fetch weather data:', error);
+  }
 };
 
 const displayWeather = (data) => {
