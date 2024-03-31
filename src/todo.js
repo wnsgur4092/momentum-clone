@@ -18,9 +18,8 @@ export function setUpTodoForm() {
     checkbox.type = 'checkbox';
     checkbox.addEventListener('click', () => removeTodo(index));
 
-    // textContent를 사용하여 텍스트 추가
     todoItem.textContent = todoText;
-    todoItem.insertBefore(checkbox, todoItem.firstChild); // 체크박스를 todoItem의 첫 번째 자식으로 추가
+    todoItem.insertBefore(checkbox, todoItem.firstChild);
     todoList.appendChild(todoItem);
   }
 
