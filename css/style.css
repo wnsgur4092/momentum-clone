@@ -2,6 +2,7 @@
 @import 'time.css';
 @import 'greeting.css';
 @import 'todo.css';
+@import 'quote.css';
 
 :root {
   --color-primary: var(--color-black);
