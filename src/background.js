@@ -1,3 +1,5 @@
+//background.js
+
 export function changeBackground() {
   const maxImageCount = 8;
   const imageNumber = Math.floor(Math.random() * maxImageCount) + 1;
