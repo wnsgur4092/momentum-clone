@@ -1,8 +1,10 @@
+import { updateBackground } from './background.js';
 import { paintQuote } from './quote.js';
 import { updateTime } from './time.js';
 
 function init() {
-  updateTime();
+  updateBackground();
+  // updateTime();
   paintQuote();
 }
 
