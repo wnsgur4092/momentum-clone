@@ -1,22 +1,30 @@
 // time.js
-export function updateDateTime() {
-  const { date, time } = getCurrentDateTime();
 
-  const dateElement = document.querySelector('.date');
-  const timeElement = document.querySelector('.time');
+//1. 오늘 시간 불러오기
 
-  dateElement.textContent = date;
-  timeElement.textContent = time;
-}
+const date = document.querySelector('.date');
+const time = document.querySelector('.time');
 
-function getCurrentDateTime() {
+function getTime() {
   const now = new Date();
 
-  const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' }; // DD.MM.YYYY 형식으로 변경
-  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true }; // HH:MM AM/PM 형식으로 변경
+  const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+  const timeOptions = { hour: '2-digit', minute: '2-digit', hour12: true };
 
   const date = now.toLocaleDateString('en-US', dateOptions).replace(/\//g, '.');
   const time = now.toLocaleTimeString('en-US', timeOptions);
 
+  console.log(date);
+  console.log(time);
+
   return { date, time };
+}
+
+//2. 시간 초 단위로 증가 시키기
+export function updateTime() {
+  getTime();
+  const { date: dateText, time: timeText } = getTime();
+  date.innerText = dateText;
+  time.innerText = timeText;
+  setInterval(getTime, 1000);
 }
