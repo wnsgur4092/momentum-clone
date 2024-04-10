@@ -32,6 +32,8 @@ export function setUpTodoForm() {
     fetchTodos();
   }
 
+  const add = 1;
+
   // Todo form to Todo item
   form.addEventListener('submit', (event) => {
     event.preventDefault();
