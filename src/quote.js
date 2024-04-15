@@ -1,13 +1,15 @@
+import { getRandomInt } from './util.js';
+
 //quote.js
-const quoteElement = document.querySelector('.quote');
-const authorElement = document.querySelector('.quote__author');
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.quote__author');
 
 function fetchQuote() {
   return fetch('../quotes.json')
     .then((res) => res.json())
     .then((data) => {
-      const quoteNumber = Math.floor(Math.random() * data.length) + 1;
-      return data[quoteNumber];
+      const randomNumber = getRandomInt(data.length);
+      return data[randomNumber];
     })
     .catch(() => console.error('Cannot get quotes'));
 }
@@ -15,7 +17,7 @@ function fetchQuote() {
 export async function paintQuote() {
   const selectedQuote = await fetchQuote();
   if (!selectedQuote) return;
-  const { quote: quote, author: author } = selectedQuote;
-  quoteElement.innerText = `"${quote}"`;
-  authorElement.innerText = author;
+  const { quote: quoteMsg, author: quoteAuthor } = selectedQuote;
+  quote.innerText = `"${quoteMsg}"`;
+  author.innerText = quoteAuthor;
 }
