@@ -14,16 +14,21 @@ function savedName(name) {
 }
 
 function fetchGreeting(name) {
+  form.classList.remove(SHOWING_CLASS); // CURRENT_USER가  있으면 form 안보이게 하기
+  greeting.classList.add(SHOWING_CLASS); //CURRENT_USER가 있으면 greeting 보이게 하기
+  todos.classList.add(SHOWING_CLASS); //CURRENT_USER가 있으면 todo 보이게 하기
   greeting.innerText = `Hello, ${name}`;
 }
 
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = input.value;
+  fetchGreeting(currentValue);
   savedName(currentValue); // name 인자가 LocalStorage의 CURRENT_USER로 저장
 }
 
 function askName() {
+  form.classList.add(SHOWING_CLASS); // CURRENT_USER가 있으면 form 보이게 하기
   form.addEventListener('submit', handleSubmit);
 }
 

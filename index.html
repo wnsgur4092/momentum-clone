@@ -23,7 +23,7 @@
 
     <!-- Main -->
     <div class="main__container">
-      <!-- Time & Greeting-->
+      <!-- Time & Greeting (Name and TODO)-->
       <section>
         <!-- Time and Date -->
         <div class="time__container">
@@ -32,30 +32,33 @@
         </div>
         <!-- Name -->
         <div class="greeting">
-          <form class="greeting__form">
+          <form class="greeting__form form">
             <input
               class="greeting__input"
               type="text"
               placeholder="What's your name?"
             />
           </form>
-          <p class="greeting__message" style="display: none"></p>
+          <p class="greeting__message greetings"></p>
         </div>
       </section>
 
-      <!-- TODO -->
-      <section class="todo__container">
-        <p class="todo__title">TODO of the Day</p>
+      <!-- Todo -->
+      <section class="todo__container todos">
+        <p class="todo__title">Todo of the Day</p>
         <form class="todo__form">
-          <input class="todo__input" type="text" placeholder="Add new todos" />
+          <input class="todo__input" type="text" />
         </form>
         <ul class="todo__list"></ul>
       </section>
     </div>
 
+    <!-- Quote -->
     <div class="quote__container">
       <p class="quote"></p>
       <div class="quote__author"></div>
     </div>
+
+    <div class="dimmer"></div>
   </body>
 </html>
