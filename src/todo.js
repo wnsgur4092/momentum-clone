@@ -1,6 +1,7 @@
 //TODO.js
 
 import { LS } from './constant/localStorage.js';
+import { toastOn } from './toast.js';
 
 const todoForm = document.querySelector('.todo__form');
 const todoInput = document.querySelector('.todo__input');
@@ -23,6 +24,7 @@ function toggleDone(index) {
   const todoItem = todoList.children[index];
   if (todos[index].done) {
     todoItem.style.textDecoration = 'line-through';
+    toastOn('Great Job 👍');
   } else {
     todoItem.style.textDecoration = 'none';
   }
@@ -62,6 +64,8 @@ function handleTodoSubmit(event) {
   saveTodos(updatedTodos);
   addTodoList(newTodo, existingTodos.length);
   todoInput.value = ''; // submit 시 input 초기화
+
+  toastOn('New task added! 오늘도 화이팅 🔥');
 }
 
 function askTodo() {
