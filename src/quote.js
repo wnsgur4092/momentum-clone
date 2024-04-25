@@ -21,5 +21,3 @@ export async function paintQuote() {
   quote.innerText = `"${quoteMsg}"`;
   author.innerText = quoteAuthor;
 }
-
-function quote() {}
