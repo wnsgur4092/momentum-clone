@@ -1,5 +1,5 @@
 import { updateBackground } from './background.js';
-import { showGreeting } from './greeting.js';
+import { displayTodos, showGreeting } from './greeting.js';
 import { paintQuote } from './quote.js';
 import { updateTime } from './time.js';
 import { displayWeather } from './weather.js';
@@ -10,6 +10,7 @@ function init() {
   paintQuote();
   showGreeting();
   displayWeather();
+  displayTodos();
 }
 
 init();
