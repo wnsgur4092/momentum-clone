@@ -19,10 +19,12 @@ function handleTodoSubmit(event) {
   event.preventDefault();
   const currentTodo = todoInput.value.trim();
   if (!currentTodo) return;
+
   const existingTodos = JSON.parse(localStorage.getItem(LS.TODOS) || '[]');
-  const updatedTodos = [...existingTodos, currentTodo];
+  const newTodo = { todo: currentTodo, done: false };
+  const updatedTodos = [...existingTodos, newTodo];
   saveTodos(updatedTodos);
-  addTodoList(currentTodo);
+  addTodoList(newTodo, existingTodos.length);
   todoInput.value = '';
 }
 
@@ -30,10 +32,34 @@ function askTodo() {
   todoForm.addEventListener('submit', handleTodoSubmit);
 }
 
-function addTodoList(todo) {
+function toggleDone(index) {
+  const todos = JSON.parse(localStorage.getItem(LS.TODOS));
+  todos[index].done = !todos[index].done;
+  saveTodos(todos);
+
+  const todoItem = todoList.children[index];
+  if (todos[index].done) {
+    todoItem.style.textDecoration = 'line-through';
+  } else {
+    todoItem.style.textDecoration = 'none';
+  }
+}
+
+function addTodoList(todo, index) {
   const todoItem = document.createElement('li');
-  todoItem.textContent = todo;
+  // 체크박스
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.checked = todo.done;
+  checkbox.onchange = () => toggleDone(index);
+
+  todoItem.appendChild(checkbox);
+  todoItem.append(todo.todo);
   todoList.appendChild(todoItem);
+
+  if (todo.done) {
+    todoItem.style.textDecoration = 'line-through';
+  }
 }
 
 export function displayTodos() {
