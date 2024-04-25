@@ -3,6 +3,7 @@
 @import 'todo.css';
 @import 'quote.css';
 @import 'weather.css';
+@import 'toast.css';
 
 :root {
   /* App Colors */
