@@ -47,6 +47,7 @@ function toggleDone(index) {
 
 function addTodoList(todo, index) {
   const todoItem = document.createElement('li');
+  todoItem.style.textAlign = 'left';
   // 체크박스
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';

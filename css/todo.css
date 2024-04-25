@@ -34,14 +34,20 @@
 
 .todo__list li {
   display: flex;
+  align-items: center;
   width: 80%;
   margin: auto;
-  justify-content: space-between;
+  justify-content: flex-start;
   font-size: 1.5rem;
   animation: showTodoList 1s ease-out forwards;
 }
+
 .todo__list li:not(:last-child) {
   margin-bottom: 1rem;
+}
+
+.todo__list input[type='checkbox'] {
+  margin-right: 15px; /* 체크박스와 텍스트 사이의 간격 추가 */
 }
 
 @keyframes showTodoList {
