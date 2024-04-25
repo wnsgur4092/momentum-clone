@@ -1,52 +1,43 @@
-export function setUpTodoForm() {
-  const form = document.querySelector('.todo__form');
-  const input = document.querySelector('.todo__input');
-  const todoList = document.querySelector('.todo__container ul');
+//TODO.js
 
-  //Fetch todo
-  function fetchTodos() {
-    const todos = JSON.parse(localStorage.getItem('todos')) ?? [];
-    todos.forEach((todoText, index) => {
-      addTodoList(todoText, index);
-    });
-  }
+import { LS } from './constant/localStorage.js';
 
-  //Add Todo item in Todo List
-  function addTodoList(todoText, index) {
-    const todoItem = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.addEventListener('click', () => removeTodo(index));
+const todoForm = document.querySelector('.todo__form');
+const todoInput = document.querySelector('.todo__input');
+const todoList = document.querySelector('.todo__container ul');
 
-    todoItem.textContent = todoText;
-    todoItem.insertBefore(checkbox, todoItem.firstChild);
-    todoList.appendChild(todoItem);
-  }
+//TODO:
+// 1. localStorage에 저장된 TODOS를 보이게 하기, 없다면 안보임
+// 2. input을 localStorage에 저장
+// 3. 1번 반복
 
-  // Remove Todo items in List
-  function removeTodo(index) {
-    let todos = JSON.parse(localStorage.getItem('todos')) ?? [];
-    todos.splice(index, 1);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    todoList.innerHTML = '';
-    fetchTodos();
-  }
+function saveTodos(todo) {
+  localStorage.setItem(LS.TODOS, JSON.stringify(todo));
+}
 
-  const add = 1;
+function handleTodoSubmit(event) {
+  event.preventDefault();
+  const currentTodo = todoInput.value.trim();
+  if (!currentTodo) return;
+  const existingTodos = JSON.parse(localStorage.getItem(LS.TODOS) || '[]');
+  const updatedTodos = [...existingTodos, currentTodo];
+  saveTodos(updatedTodos);
+  addTodoList(currentTodo);
+  todoInput.value = '';
+}
 
-  // Todo form to Todo item
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const todoText = input.value.trim();
-    if (!todoText) return;
+function askTodo() {
+  todoForm.addEventListener('submit', handleTodoSubmit);
+}
 
-    const todos = JSON.parse(localStorage.getItem('todos')) ?? [];
-    todos.push(todoText);
-    localStorage.setItem('todos', JSON.stringify(todos));
-    input.value = '';
-    todoList.innerHTML = '';
-    fetchTodos();
-  });
+function addTodoList(todo) {
+  const todoItem = document.createElement('li');
+  todoItem.textContent = todo;
+  todoList.appendChild(todoItem);
+}
 
-  fetchTodos();
+export function displayTodos() {
+  askTodo();
+  const savedTodos = JSON.parse(localStorage.getItem(LS.TODOS)) ?? [];
+  savedTodos.forEach(addTodoList);
 }
