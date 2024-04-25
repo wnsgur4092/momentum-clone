@@ -9,6 +9,7 @@ const todos = document.querySelector('.todo__container');
 
 const SHOWING_CLASS = 'showing';
 
+// GREETING
 function savedName(name) {
   localStorage.setItem(LS.CURRENT_USER, name);
 }
