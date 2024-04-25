@@ -7,7 +7,7 @@ import { displayWeather } from './weather.js';
 
 function init() {
   updateBackground();
-  // updateTime();
+  updateTime();
   paintQuote();
   showGreeting();
   displayWeather();
