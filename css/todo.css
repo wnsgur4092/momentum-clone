@@ -6,13 +6,6 @@
   padding: 0 1rem;
 }
 
-.todo__form input::placeholder {
-  font-size: 2rem;
-  opacity: 80%;
-  text-align: center;
-  color: white;
-}
-
 .todo__container input {
   text-align: center;
 }
@@ -41,22 +34,14 @@
 
 .todo__list li {
   display: flex;
-  align-items: center;
   width: 80%;
   margin: auto;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 1.5rem;
   animation: showTodoList 1s ease-out forwards;
 }
 .todo__list li:not(:last-child) {
   margin-bottom: 1rem;
-}
-
-.todo__list li input[type='checkbox'] {
-  margin-right: 1rem; /* 체크박스와 텍스트 사이의 간격 조절 */
-  width: 20px; /* 체크박스 크기 조정 */
-  height: 20px; /* 체크박스 크기 조정 */
-  cursor: pointer; /* 마우스 포인터 변경 */
 }
 
 @keyframes showTodoList {
@@ -70,7 +55,7 @@
 
 .todo__list span {
   display: inline-block;
-  max-width: calc(100% - 30px);
+  max-width: 80%;
   text-align: left;
   width: 100%;
   white-space: nowrap;
@@ -83,7 +68,6 @@
   opacity: 70%;
   font-size: 1.5rem;
   color: var(--color-text);
-  cursor: pointer;
 }
 
 .todo__list button:hover {

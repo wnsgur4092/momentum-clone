@@ -1,14 +1,15 @@
-@import 'weather.css';
-@import 'time.css';
 @import 'greeting.css';
+@import 'time.css';
 @import 'todo.css';
 @import 'quote.css';
+@import 'weather.css';
 
 :root {
+  /* App Colors */
   --color-primary: var(--color-black);
   --color-text: var(--color-white);
 
-  /* Colors 변수 설정 */
+  /* Colors */
   --color-white: #ffffff;
   --color-black: #050a13;
 
@@ -23,12 +24,13 @@
 }
 
 body {
+  font-family: 'Open Sans', sans-serif;
   background-color: var(--color-primary);
+  color: var(--color-text);
   height: 100vh;
   margin: 0;
   padding: 0 1rem;
   min-height: 720px;
-  color: var(--color-text);
 }
 
 h1,
@@ -95,4 +97,25 @@ input[type='text']:hover {
   transform: translate(-50%, -40%);
   position: relative;
   text-shadow: var(--text-shadow-lg);
+}
+
+.dimmer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(rgba(0, 0, 0, 0.5), transparent);
+  z-index: -1;
+}
+
+.form,
+.greetings,
+.todos {
+  display: none;
+}
+
+.showing {
+  display: block;
 }
