@@ -14,9 +14,6 @@ function getTime() {
   const date = now.toLocaleDateString('en-US', dateOptions).replace(/\//g, '.');
   const time = now.toLocaleTimeString('en-US', timeOptions);
 
-  console.log(date);
-  console.log(time);
-
   return { date, time };
 }
 
