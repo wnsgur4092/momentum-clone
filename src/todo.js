@@ -5,11 +5,11 @@ const todoForm = document.querySelector('.todo__form');
 const todoInput = document.querySelector('.todo__input');
 const todoList = document.querySelector('.todo__container ul');
 
-let todos = []; // 전역 투두 배열
+let todos = [];
 
 export function initTodoApp() {
-  todos = fetchTodos(); // 이전 투두 목록 로드
-  renderTodos(); // DOM에 투두 목록 렌더링
+  todos = fetchTodos();
+  renderTodos();
   todoForm.addEventListener('submit', handleTodoSubmit);
   todoList.addEventListener('change', handleCheckboxChange);
 }
