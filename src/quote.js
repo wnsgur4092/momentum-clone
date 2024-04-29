@@ -1,6 +1,6 @@
+//quote.js
 import { getRandomInt } from './util.js';
 
-//quote.js
 const quote = document.querySelector('.quote');
 const author = document.querySelector('.quote__author');
 

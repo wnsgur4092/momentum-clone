@@ -1,6 +1,6 @@
 //toast.js
 
-const SHOWING_TOAST = 'toast__active'; // 이 부분을 정확히 사용하도록 수정합니다.
+const SHOWING_TOAST = 'toast__active';
 
 export function toastOn(message) {
   const toastMessage = document.querySelector('.toast__message');
@@ -10,7 +10,7 @@ export function toastOn(message) {
   }
 
   toastMessage.innerText = message;
-  toastMessage.classList.add(SHOWING_TOAST); // SHOWING_TOAST 상수를 올바르게 사용합니다.
+  toastMessage.classList.add(SHOWING_TOAST);
 
   toastMessage.addEventListener(
     'animationend',
