@@ -10,8 +10,6 @@ This is a clone of the popular `Momentum Chrome extension`, designed to enhance 
 
 <img width="500" alt="스크린샷 2024-04-29 오후 11 08 09" src="https://github.com/wnsgur4092/momentum-clone/assets/43236727/57c84bff-0557-461a-b94c-c9eb7b174def">
 
-### **_“Turn every new tab into a hub of productivity and inspiration.”_**
-
 **Momentum-Clone** is perfect for individuals who want to transform their browser's new tab into a personalized dashboard that helps track their daily tasks and inspires them with daily changing backgrounds.
 
 **Core Features:**
