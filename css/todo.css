@@ -59,6 +59,10 @@
   }
 }
 
+.todo__list li.done {
+  text-decoration: line-through;
+}
+
 .todo__list span {
   display: inline-block;
   max-width: 80%;
