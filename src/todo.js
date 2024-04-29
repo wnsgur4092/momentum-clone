@@ -3,7 +3,7 @@ import { toastOn } from './toast.js';
 
 const todoForm = document.querySelector('.todo__form');
 const todoInput = document.querySelector('.todo__input');
-const todoList = document.querySelector('.todo__container ul');
+const todoList = document.querySelector('.todo__list');
 
 let todos = [];
 
@@ -39,8 +39,8 @@ function addTodoList(todo, index) {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.checked = todo.done;
-  checkbox.dataset.index = index;
 
+  todoItem.dataset.index = index;
   todoItem.appendChild(checkbox);
   todoItem.append(todo.todo);
   todoItem.classList.toggle('done', todo.done);
@@ -48,7 +48,7 @@ function addTodoList(todo, index) {
 }
 
 function fetchTodos() {
-  return JSON.parse(localStorage.getItem(LS.TODOS) || '[]');
+  return JSON.parse(localStorage.getItem(LS.TODOS) ?? '[]');
 }
 
 function handleTodoSubmit(event) {
@@ -66,6 +66,5 @@ function handleTodoSubmit(event) {
 }
 
 function renderTodos() {
-  todoList.innerHTML = '';
   todos.forEach(addTodoList);
 }
