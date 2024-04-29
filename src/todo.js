@@ -19,21 +19,18 @@ function saveTodos() {
 }
 
 function toggleDone(index) {
-  todos[index].done = !todos[index].done;
-  saveTodos();
-  updateTodoItem(index);
-
-  if (todos[index].done) {
-    toastOn('Great Job 👍');
-  }
+  const todo = todos[index];
+  todo.done = !todo.done;
+  const todoItem = todoList.children[index];
+  todoItem.classList.toggle('done', todo.done);
+  todo.done && toastOn('Great Job 👍');
 }
 
 function handleCheckboxChange(event) {
   if (event.target.type === 'checkbox') {
-    const index = Array.from(todoList.children).indexOf(
-      event.target.parentNode
-    );
+    const index = event.target.parentNode.dataset.index;
     toggleDone(index);
+    saveTodos();
   }
 }
 
@@ -71,15 +68,4 @@ function handleTodoSubmit(event) {
 function renderTodos() {
   todoList.innerHTML = '';
   todos.forEach(addTodoList);
-}
-
-function updateTodoItem(index) {
-  const todoItem = todoList.children[index];
-  const todo = todos[index];
-  todoItem.classList.toggle('done', todo.done);
-}
-
-function loadTodos() {
-  const savedTodos = fetchTodos();
-  todos = savedTodos.length ? savedTodos : [];
 }
