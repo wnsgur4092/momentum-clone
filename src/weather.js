@@ -21,7 +21,7 @@ function getWeather(lat, lon) {
       temperature.innerText = `${temperatureData}℃`;
       icon.src = iconData;
       location.innerText = locationData;
-      weather.classList.add('visible'); // 날씨 정보를 불러오고 나서 visible 클래스를 추가합니다.
+      weather.classList.add('visible');
     })
     .catch(console.error);
 }
