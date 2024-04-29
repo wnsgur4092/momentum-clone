@@ -10,7 +10,7 @@ This is a clone of the popular `Momentum Chrome extension`, designed to enhance 
 
 <img width="500" alt="스크린샷 2024-04-29 오후 11 08 09" src="https://github.com/wnsgur4092/momentum-clone/assets/43236727/57c84bff-0557-461a-b94c-c9eb7b174def">
 
-### ***“Turn every new tab into a hub of productivity and inspiration.”***
+### **_“Turn every new tab into a hub of productivity and inspiration.”_**
 
 **Momentum-Clone** is perfect for individuals who want to transform their browser's new tab into a personalized dashboard that helps track their daily tasks and inspires them with daily changing backgrounds.
 
@@ -22,7 +22,7 @@ This is a clone of the popular `Momentum Chrome extension`, designed to enhance 
 - **Dynamic Backgrounds**: Changes the background image daily to keep the dashboard visually engaging.
 - **Local Storage**: Uses localStorage to remember user settings and to-do lists even after the browser is closed.
 - **Toast Message**: Show the toast message, when user adds new tasks in todo or completes the tasks (checks the tasks)
-- **Random Quotes**: Display a random motivational quote at the bottom of page 
+- **Random Quotes**: Display a random motivational quote at the bottom of page
 
 ## [🔥 Getting Started]
 
@@ -49,4 +49,3 @@ This is a clone of the popular `Momentum Chrome extension`, designed to enhance 
 ## [Project Status]
 
 This project is currently in maintenance mode, with occasional updates for improvements and bug fixes as needed.
-
