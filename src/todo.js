@@ -3,13 +3,13 @@ import { toastOn } from './toast.js';
 
 const todoForm = document.querySelector('.todo__form');
 const todoInput = document.querySelector('.todo__input');
-const todoList = document.querySelector('.todo__container ul');
+const todoList = document.querySelector('.todo__list');
 
-let todos = []; // 전역 투두 배열
+let todos = [];
 
 export function initTodoApp() {
-  todos = fetchTodos(); // 이전 투두 목록 로드
-  renderTodos(); // DOM에 투두 목록 렌더링
+  todos = fetchTodos();
+  renderTodos();
   todoForm.addEventListener('submit', handleTodoSubmit);
   todoList.addEventListener('change', handleCheckboxChange);
 }
@@ -19,21 +19,18 @@ function saveTodos() {
 }
 
 function toggleDone(index) {
-  todos[index].done = !todos[index].done;
-  saveTodos();
-  updateTodoItem(index);
-
-  if (todos[index].done) {
-    toastOn('Great Job 👍');
-  }
+  const todo = todos[index];
+  todo.done = !todo.done;
+  const todoItem = todoList.children[index];
+  todoItem.classList.toggle('done', todo.done);
+  todo.done && toastOn('Great Job 👍');
 }
 
 function handleCheckboxChange(event) {
   if (event.target.type === 'checkbox') {
-    const index = Array.from(todoList.children).indexOf(
-      event.target.parentNode
-    );
+    const index = event.target.parentNode.dataset.index;
     toggleDone(index);
+    saveTodos();
   }
 }
 
@@ -42,8 +39,8 @@ function addTodoList(todo, index) {
   const checkbox = document.createElement('input');
   checkbox.type = 'checkbox';
   checkbox.checked = todo.done;
-  checkbox.dataset.index = index;
 
+  todoItem.dataset.index = index;
   todoItem.appendChild(checkbox);
   todoItem.append(todo.todo);
   todoItem.classList.toggle('done', todo.done);
@@ -51,7 +48,7 @@ function addTodoList(todo, index) {
 }
 
 function fetchTodos() {
-  return JSON.parse(localStorage.getItem(LS.TODOS) || '[]');
+  return JSON.parse(localStorage.getItem(LS.TODOS) ?? '[]');
 }
 
 function handleTodoSubmit(event) {
@@ -69,17 +66,5 @@ function handleTodoSubmit(event) {
 }
 
 function renderTodos() {
-  todoList.innerHTML = '';
   todos.forEach(addTodoList);
-}
-
-function updateTodoItem(index) {
-  const todoItem = todoList.children[index];
-  const todo = todos[index];
-  todoItem.classList.toggle('done', todo.done);
-}
-
-function loadTodos() {
-  const savedTodos = fetchTodos();
-  todos = savedTodos.length ? savedTodos : [];
 }
